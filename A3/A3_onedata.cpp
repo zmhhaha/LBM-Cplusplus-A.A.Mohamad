@@ -1,7 +1,3 @@
-// A3_onedata.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -16,7 +12,7 @@ int main()
 	float uo, rhoo, rhon, dx, dy, dt, alpha, Re, omega, t1, t2, ssum, usum, vsum;
 	int i, j, k, kk;
 	uo = 0.10, rhoo = 5.00, dx = 1.0, dy = dx, dt = 1.0, alpha = 0.01, Re = uo*m / alpha, omega = 1.0 / (3.0 * alpha + 0.5);
-	//È¨ÖØÏµÊı
+	//æƒé‡ç³»æ•°
 	w[0] = 4.0 / 9;
 	for (i = 1; i <= 4; i++)
 	{
@@ -68,7 +64,7 @@ int main()
 		u[i][m] = uo;
 		v[i][m] = 0.0;
 	}
-	//Ô´³ÌĞòÎ´¸øf¸³³õÖµ
+	//æºç¨‹åºæœªç»™fèµ‹åˆå€¼
 	for (j = 0; j <= m; j++)
 	{
 		for (i = 0; i <= n; i++)
@@ -79,10 +75,10 @@ int main()
 			}
 		}
 	}
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªç¯
 	for (kk = 1; kk <= mstep; kk++)
 	{
-		//Åö×²
+		//ç¢°æ’
 		for (i = 0; i <= n; i++)
 		{
 			for (j = 0; j <= m; j++)
@@ -96,7 +92,7 @@ int main()
 				}
 			}
 		}
-		//Á÷¶¯
+		//æµåŠ¨
 		for (j = 0; j <= m; j++)
 		{
 			for (i = n; i > 0; i--)
@@ -138,8 +134,8 @@ int main()
 				f[8][i][j] = f[8][i - 1][j + 1];
 			}
 		}
-		//±ß½çÌõ¼ş
-		//³ıy=m£¬·´µ¯±ß½ç
+		//è¾¹ç•Œæ¡ä»¶
+		//é™¤y=mï¼Œåå¼¹è¾¹ç•Œ
 		for (j = 0; j <= m; j++)
 		{
 			f[1][0][j] = f[3][0][j];
@@ -155,7 +151,7 @@ int main()
 			f[5][i][0] = f[7][i][0];
 			f[6][i][0] = f[8][i][0];
 		}
-		//y=m£¬ÒÆ¶¯µÄ¸Ç×Ó
+		//y=mï¼Œç§»åŠ¨çš„ç›–å­
 		for (i = 1; i <= n - 1; i++)
 		{
 			rhon = f[0][i][m] + f[1][i][m] + f[3][i][m] + 2 * (f[2][i][m] + f[6][i][m] + f[5][i][m]);
