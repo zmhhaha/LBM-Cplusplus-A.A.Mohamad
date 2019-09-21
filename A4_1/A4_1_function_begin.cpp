@@ -1,7 +1,3 @@
-// A4_1_function_begin.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -114,10 +110,10 @@ int main()
 		u[i][m] = uo;
 		v[i][m] = vo;
 	}
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªç¯
 	for (kk = 1; kk <= mstep; kk++)
 	{
-		//Åö×²
+		//ç¢°æ’
 		for (i = 0; i <= n; i++)
 		{
 			for (j = 0; j <= m; j++)
@@ -131,9 +127,9 @@ int main()
 				}
 			}
 		}
-		//Á÷¶¯
+		//æµåŠ¨
 		streaming(n, m, f);
-		//±ß½çÌõ¼ş
+		//è¾¹ç•Œæ¡ä»¶
 		for (j = 0; j <= m; j++)
 		{
 			f[1][0][j] = f[3][0][j];
@@ -156,7 +152,7 @@ int main()
 			f[8][i][m] = f[6][i][m] + rhon*uo / 6.0;
 			f[7][i][m] = f[5][i][m] - rhon*uo / 6.0;
 		}
-		//¼ÆËãu£¬v
+		//è®¡ç®—uï¼Œv
 		for (j = 0; j <= m; j++)
 		{
 			for (i = 0; i <= n; i++)
@@ -196,7 +192,7 @@ int main()
 				th[i][j] = sum;
 			}
 		}
-		//±êÁ¿µÄÅö×²
+		//æ ‡é‡çš„ç¢°æ’
 		for (i = 0; i <= n; i++)
 		{
 			for (j = 0; j <= m; j++)
@@ -208,9 +204,9 @@ int main()
 				}
 			}
 		}
-		//±êÁ¿µÄÁ÷¶¯
+		//æ ‡é‡çš„æµåŠ¨
 		streaming(n, m, g);
-		//±êÁ¿µÄ±ß½çÌõ¼ş
+		//æ ‡é‡çš„è¾¹ç•Œæ¡ä»¶
 		for (j = 0; j <= m; j++)
 		{
 			g[1][0][j] = -g[3][0][j];
