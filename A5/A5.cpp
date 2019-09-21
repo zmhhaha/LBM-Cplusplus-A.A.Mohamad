@@ -1,7 +1,3 @@
-// A5.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -83,7 +79,7 @@ void collision(float u[101][101], float v[101][101], float f[9][101][101], float
 	float feq[9][101][101], fmom[9][101][101], fmeq[9][101][101];
 	float t1,t2,suma,sumb;
 	int i, j, l, k;
-	//¼ÆËãÆ½ºâÊ±¼ä
+	//è®¡ç®—å¹³è¡¡æ—¶é—´
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= m; j++)
@@ -101,7 +97,7 @@ void collision(float u[101][101], float v[101][101], float f[9][101][101], float
 			fmeq[8][i][j] = rho[i][j] * u[i][j] * v[i][j];
 		}
 	}
-	//¼ÆËãÊ±¼ä
+	//è®¡ç®—æ—¶é—´
 	for ( j = 0; j <= m; j++)
 	{
 		for ( i = 0; i <= n; i++)
@@ -117,7 +113,7 @@ void collision(float u[101][101], float v[101][101], float f[9][101][101], float
 			}
 		}
 	}
-	//¼ÆËãÊ±¼ä¿Õ¼äÖĞµÄÅö×²
+	//è®¡ç®—æ—¶é—´ç©ºé—´ä¸­çš„ç¢°æ’
 	for ( j = 0; j <= m; j++)
 	{
 		for ( i = 0; i <= n; i++)
@@ -185,8 +181,8 @@ void sfbound(float f[9][101][101], int n, int m, float uo)
 {
 	int i, j;
 	float rhon;
-	//±ß½çÌõ¼ş
-	//³ıy=m£¬·´µ¯±ß½ç
+	//è¾¹ç•Œæ¡ä»¶
+	//é™¤y=mï¼Œåå¼¹è¾¹ç•Œ
 	for (j = 0; j <= m; j++)
 	{
 		f[1][0][j] = f[3][0][j];
@@ -202,7 +198,7 @@ void sfbound(float f[9][101][101], int n, int m, float uo)
 		f[5][i][0] = f[7][i][0];
 		f[6][i][0] = f[8][i][0];
 	}
-	//y=m£¬ÒÆ¶¯µÄ¸Ç×Ó
+	//y=mï¼Œç§»åŠ¨çš„ç›–å­
 	for (i = 1; i <= n - 1; i++)
 	{
 		rhon = f[0][i][m] + f[1][i][m] + f[3][i][m] + 2 * (f[2][i][m] + f[6][i][m] + f[5][i][m]);
