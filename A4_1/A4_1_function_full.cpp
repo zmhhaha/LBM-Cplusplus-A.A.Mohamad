@@ -1,7 +1,3 @@
-// A4_1_function_full.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -189,14 +185,14 @@ int main()
 	omega = 1.0 / (3 * visco + 0.5);
 	omegat = 1.0 / (3 * alpha + 0.5);
 	init(rho, th, f, g, u, v, n, m, uo, rhoo, w);
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªçŽ¯
 	for (kk = 1; kk <= mstep; kk++)
 	{
-		//Åö×²
+		//ç¢°æ’ž
 		collision(u, v, f, rho, w, cx, cy, n, m, omega);
-		//Á÷¶¯
+		//æµåŠ¨
 		streaming(n, m, f);
-		//±ß½çÌõ¼þ
+		//è¾¹ç•Œæ¡ä»¶
 		for (j = 0; j <= m; j++)
 		{
 			f[1][0][j] = f[3][0][j];
@@ -219,8 +215,8 @@ int main()
 			f[8][i][m] = f[6][i][m] + rhon*uo / 6.0;
 			f[7][i][m] = f[5][i][m] - rhon*uo / 6.0;
 		}
-		//¼ÆËãu£¬v
-		//¼ÆËãu£¬v
+		//è®¡ç®—uï¼Œv
+		//è®¡ç®—uï¼Œv
 		for (j = 0; j <= m; j++)
 		{
 			for (i = 0; i <= n; i++)
@@ -260,11 +256,11 @@ int main()
 				th[i][j] = sum;
 			}
 		}
-		//±êÁ¿µÄÅö×²
+		//æ ‡é‡çš„ç¢°æ’ž
 		collisiont(u, v, g, th, w, cx, cy, n, m, omegat);
-		//±êÁ¿µÄÁ÷¶¯
+		//æ ‡é‡çš„æµåŠ¨
 		streaming(n, m, g);
-		//±êÁ¿µÄ±ß½çÌõ¼þ
+		//æ ‡é‡çš„è¾¹ç•Œæ¡ä»¶
 		for (j = 0; j <= m; j++)
 		{
 			g[1][0][j] = -g[3][0][j];
