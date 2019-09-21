@@ -1,7 +1,3 @@
-// A2_3.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -28,7 +24,7 @@ int main()
 	csq = ck*ck;
 	alpha = 1.0;
 	omega = 1.0 / (2 * alpha / (dt*csq) + 0.5);
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	for ( j = 0; j <= m; j++)
 	{
 		for ( i = 0; i <= n; i++)
@@ -46,10 +42,10 @@ int main()
 			f4[i][j] = 0.25*rho[i][j];
 		}
 	}
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªç¯
 	for ( kk = 1; kk <= mstep; kk++)
 	{
-		//Åö×²
+		//ç¢°æ’
 		for ( j = 0; j <= m; j++)
 		{
 			for ( i = 0; i <= n; i++)
@@ -64,7 +60,7 @@ int main()
 				f4[i][j] = omega*feq4 + (1 - omega)*f4[i][j];
 			}
 		}
-		//Á÷¶¯
+		//æµåŠ¨
 		for ( j = 0; j <= m ; j++)
 		{
 			for ( i = 1; i <= n; i++)
@@ -81,7 +77,7 @@ int main()
 				f4[i][j - 1] = f4[i][j];
 			}
 		}
-		//±ß½çÌõ¼ş
+		//è¾¹ç•Œæ¡ä»¶
 		for ( j = 1; j <= m; j++)
 		{
 			f1[0][j] = 0.5 - f2[0][j];
