@@ -1,7 +1,3 @@
-// A4_3.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -107,28 +103,28 @@ void collisiont(float u[101][101], float v[101][101], float f[9][101][101], floa
 void bounce(float f[9][101][101], int n, int m)
 {
 	int i, j;
-	//Î÷Èë¿Ú
+	//è¥¿å…¥å£
 	for (j = 0; j <= m; j++)
 	{
 		f[1][0][j] = f[3][0][j];
 		f[5][0][j] = f[7][0][j];
 		f[8][0][j] = f[6][0][j];
 	}
-	//±±·´µ¯
+	//åŒ—åå¼¹
 	for (i = 0; i <= n; i++)
 	{
 		f[4][i][m] = f[2][i][m];
 		f[8][i][m] = f[6][i][m];
 		f[7][i][m] = f[5][i][m];
 	}
-	//ÄÏ·´µ¯
+	//å—åå¼¹
 	for (i = 0; i <= n; i++)
 	{
 		f[2][i][0] = f[4][i][0];
 		f[5][i][0] = f[7][i][0];
 		f[6][i][0] = f[8][i][0];
 	}
-	//¶«·´µ¯
+	//ä¸œåå¼¹
 	for (j = 0; j <= m; j++)
 	{
 		f[3][n][j] = f[1][n][j];
@@ -140,21 +136,21 @@ void bounce(float f[9][101][101], int n, int m)
 void gbound(float g[9][101][101], float w[9], float tw, int n, int m)
 {
 	int i, j, k;
-	//×ó±ß½ç£¬T=tw=1.0
+	//å·¦è¾¹ç•Œï¼ŒT=tw=1.0
 	for (j = 0; j <= m; j++)
 	{
 		g[1][0][j] = tw*(w[1] + w[3]) - g[3][0][j];
 		g[5][0][j] = tw*(w[5] + w[7]) - g[7][0][j];
 		g[8][0][j] = tw*(w[8] + w[6]) - g[6][0][j];
 	}
-	//ÓÒ±ß½ç£¬T=0.0
+	//å³è¾¹ç•Œï¼ŒT=0.0
 	for (j = 0; j <= m; j++)
 	{
 		g[6][n][j] = -g[8][n][j];
 		g[3][n][j] = -g[1][n][j];
 		g[7][n][j] = -g[5][n][j];
 	}
-	//ÉÏ±ß½ç£¬¾øÈÈ
+	//ä¸Šè¾¹ç•Œï¼Œç»çƒ­
 	for (i = 1; i <= n-1; i++)
 	{
 		for ( k = 0; k <= 8; k++)
@@ -162,7 +158,7 @@ void gbound(float g[9][101][101], float w[9], float tw, int n, int m)
 			g[k][i][m] = g[k][i][m - 1];
 		}
 	}
-	//ÏÂ±ß½ç£¬T=tw=1.0
+	//ä¸‹è¾¹ç•Œï¼ŒT=tw=1.0
 	for (i = 1; i <= n-1; i++)
 	{
 		for (k = 0; k <= 8; k++)
@@ -322,7 +318,7 @@ int main()
 	xy(x, y, dx, dy, n, m);
 	Q9(w, cx, cy);
 	init(rho, th, f, g, u, v, n, m, rhoo, w, tref);
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªç¯
 	for (kk = 1; kk <= mstep; kk++)
 	{
 		collision(u, v, f, rho, w, cx, cy, n, m, omega, th,gbeta,tref);
