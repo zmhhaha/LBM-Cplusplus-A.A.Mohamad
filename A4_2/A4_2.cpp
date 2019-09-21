@@ -1,7 +1,3 @@
-// A4_2.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -97,7 +93,7 @@ void sfbound(float f[9][1001][51], float uo, int n, int m)
 {
 	int i, j;
 	float rhow;
-	//Î÷Èë¿Ú
+	//è¥¿å…¥å£
 	for ( j = 0; j <= m; j++)
 	{
 		rhow = f[0][0][j] + f[2][0][j] + f[4][0][j] + 2 * (f[3][0][j] + f[6][0][j] + f[7][0][j]) / (1.0 - uo);
@@ -105,21 +101,21 @@ void sfbound(float f[9][1001][51], float uo, int n, int m)
 		f[5][0][j] = f[7][0][j] + rhow*uo / 6.0;
 		f[8][0][j] = f[6][0][j] + rhow*uo / 6.0;
 	}
-	//±±·´µ¯
+	//åŒ—åå¼¹
 	for ( i = 0; i <= n; i++)
 	{
 		f[4][i][m] = f[2][i][m];
 		f[8][i][m] = f[6][i][m];
 		f[7][i][m] = f[5][i][m];
 	}
-	//ÄÏ·´µ¯
+	//å—åå¼¹
 	for ( i = 0; i <= n; i++)
 	{
 		f[2][i][0] = f[4][i][0];
 		f[5][i][0] = f[7][i][0];
 		f[6][i][0] = f[8][i][0];
 	}
-	//¶«³ö¿Ú¿ª·Å±ß½ç
+	//ä¸œå‡ºå£å¼€æ”¾è¾¹ç•Œ
 	for ( j = 1; j <= m-1; j++)
 	{
 		f[1][n][j] = 2 * f[1][n - 1][j] - f[1][n - 2][j];
@@ -131,14 +127,14 @@ void sfbound(float f[9][1001][51], float uo, int n, int m)
 void gbound(float g[9][1001][51], float w[9], float tw, int n, int m)
 {
 	int i, j;
-	//×ó±ß½ç£¬T=0.0
+	//å·¦è¾¹ç•Œï¼ŒT=0.0
 	for ( j = 0; j <= m; j++)
 	{
 		g[1][0][j] = -g[3][0][j];
 		g[5][0][j] = -g[7][0][j];
 		g[8][0][j] = -g[6][0][j];
 	}
-	//ÓÒ±ß½ç£¬¿ª·Å
+	//å³è¾¹ç•Œï¼Œå¼€æ”¾
 	for ( j = 0; j <= m; j++)
 	{
 		g[6][n][j] = 2 * g[6][n - 1][j] - g[6][n - 2][j];
@@ -151,14 +147,14 @@ void gbound(float g[9][1001][51], float w[9], float tw, int n, int m)
 		g[5][n][j] = 2 * g[5][n - 1][j] - g[5][n - 2][j];
 		g[8][n][j] = 2 * g[8][n - 1][j] - g[8][n - 2][j];
 	}
-	//ÉÏ±ß½ç£¬T=tw=1.0
+	//ä¸Šè¾¹ç•Œï¼ŒT=tw=1.0
 	for ( i = 0; i <= n; i++)
 	{
 		g[8][i][m] = tw*(w[8] + w[6]) - g[6][i][m];
 		g[4][i][m] = tw*(w[4] + w[2]) - g[2][i][m];
 		g[7][i][m] = tw*(w[7] + w[5]) - g[5][i][m];
 	}
-	//ÏÂ±ß½ç£¬T=tw=1.0
+	//ä¸‹è¾¹ç•Œï¼ŒT=tw=1.0
 	for ( i = 0; i <= n; i++)
 	{
 		g[2][i][0] = tw*(w[2] + w[4]) - g[4][i][0];
@@ -323,7 +319,7 @@ int main()
 	xy(x, y, dx, dy, n, m);
 	Q9(w, cx, cy);
 	init(rho, th, f, g, u, v, n, m, uo, rhoo, w);
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªç¯
 	for ( kk = 1; kk <= mstep; kk++)
 	{
 		collision(u, v, f, rho, w, cx, cy, n, m, omega);
