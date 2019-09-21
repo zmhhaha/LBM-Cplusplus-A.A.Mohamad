@@ -1,7 +1,3 @@
-// A1_5.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include <float.h>
 #include <iostream>
 #include <math.h>
@@ -26,7 +22,7 @@ int main()
 	alpha = 0.25;
 	csq = dx*dx / dt*dt;
 	omega = 1.0 / (3 * alpha / (csq*dt) + 0.5);
-	//È¨ÖØÏµÊı
+	//æƒé‡ç³»æ•°
 	w[0] = 4.0 / 9;
 	for ( i = 1; i <= 4; i++)
 	{
@@ -36,7 +32,7 @@ int main()
 	{
 		w[i] = 1.0 / 36;
 	}
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	for ( j = 0; j <= m; j++)
 	{
 		for ( i = 0; i <= n; i++)
@@ -56,7 +52,7 @@ int main()
 			}
 		}
 	}
-	//Ö÷Ñ­»·
+	//ä¸»å¾ªç¯
 	for ( kk = 1; kk <= mstep; kk++)
 	{
 		for ( j = 0; j <= m; j++)
@@ -71,7 +67,7 @@ int main()
 				rho[i][j] = sum;
 			}
 		}
-		//Åö×²
+		//ç¢°æ’
 		for ( j = 0; j <= m; j++)
 		{
 			for ( i = 0; i <= n; i++)
@@ -83,7 +79,7 @@ int main()
 				}
 			}
 		}
-		//Á÷¶¯
+		//æµåŠ¨
 		for ( j = m; j > 0 ; j--)
 		{
 			for ( i = 0; i < n; i++)
@@ -116,7 +112,7 @@ int main()
 				f[7][i][j] = f[7][i + 1][j + 1];
 			}
 		}
-		//±ß½çÌõ¼ş
+		//è¾¹ç•Œæ¡ä»¶
 		for ( j = 0; j <= m; j++)
 		{
 			f[1][0][j] = w[1] * tw + w[3] * tw - f[3][0][j];
